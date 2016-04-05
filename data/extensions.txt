@@ -1,0 +1,2 @@
+#  MAC; P34=passwd; P35=userid
+000b82795b2f;P34=sip6899;P35=6899

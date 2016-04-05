@@ -18,6 +18,15 @@ class Gs extends CI_Controller {
 			$this->xmlconfig($mac);
 			return;
 		}
+
+		if ( preg_match('/gxp1600fw\.bin/', $filename, $match) )
+		{
+			$this->output
+				->set_content_type('application/octet-stream')
+				->set_output(file_get_contents('data/fw/gxp1600fw.bin'));
+
+			return;
+		}
 		
 		show_404();
 	
@@ -28,8 +37,6 @@ class Gs extends CI_Controller {
 		$this->gsgeral();
 		$this->gsuser($mac);
 
-		print_r($this->gsconfig);
-		
 		$xml = new SimpleXMLElement("<?xml version='1.0' encoding='utf-8'?><gs_provision/>");
 		$xml->addAttribute('version', '1');
 		$xml->addChild("mac", $mac);
@@ -43,13 +50,13 @@ class Gs extends CI_Controller {
 		}
 
 		$this->output
-        	->set_content_type('application/xml')
-        	->set_output($xml->saveXML());
+			->set_content_type('application/xml')
+			->set_output($xml->saveXML());
 	}
 
 	private function gsgeral()
 	{
-		if ( $file = fopen("data/geral.txt","r") )
+		if ( $file = fopen("data/global.txt","r") )
 		{
 			while(! feof($file))
 			{
@@ -69,12 +76,12 @@ class Gs extends CI_Controller {
 		}
 
 		else
-			throw new Exception("Erro no geral.txt", 1);
+			throw new Exception("Erro no global.txt", 1);
 	}
 
 	private function gsuser($mac)
 	{
-		if ( $file = fopen("data/macs.txt","r") )
+		if ( $file = fopen("data/extensions.txt","r") )
 		{
 			while(! feof($file))
 			{
@@ -101,7 +108,7 @@ class Gs extends CI_Controller {
 			fclose($file);
 		}
 		else
-			throw new Exception("Erro no macs.txt", 1);
+			throw new Exception("Erro no extensions.txt", 1);
 	}
 
 }

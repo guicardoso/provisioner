@@ -14,7 +14,7 @@ class Gs extends CI_Controller {
 	{
 		if ( preg_match('/cfg([0-f]+)\.xml/', $filename, $match) )
 		{
-			$mac = $match[1];
+			$mac = strtolower($match[1]);
 			$this->xmlconfig($mac);
 			return;
 		}
@@ -92,8 +92,8 @@ class Gs extends CI_Controller {
 				# Filtra linhas com comentários
 				if ( count($fields) < 2 )
 					continue;
-				
-				if ( trim($fields[0]) == $mac )
+
+				if ( strtolower(trim($fields[0])) == $mac )
 				{
 					array_shift($fields);
 					foreach ($fields as $value)

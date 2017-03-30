@@ -1,0 +1,16 @@
+
+
+P192 = fm.grandstream.com/gs	# Firmware Server Path
+P237 = fm.grandstream.com/gs	# Config Server Path
+P30 = pool.ntp.org  			# NTP Server
+
+# Account 1/General Settings
+P270 = Account Name				# Account Name
+P271 = 1						# Account Active. 0 - No, 1 - Yes. Default is 1
+P47 = sip.server				# SIP Server
+P33 = *72						# Voice Mail Access Number
+
+
+P64 = auto						# Time Zone
+P338 = 1						# Disable in-call DTMF Display. 0 - No, 1 - Yes. Default is 0
+

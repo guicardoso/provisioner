@@ -55,7 +55,7 @@ class Ext_configs extends CI_Model {
 	{
 		$vgroups = explode('/', $groups);
 
-		foreach ($vgroups as $group) {
+		foreach (array_reverse($vgroups) as $group) {
 			$this->cfg_load_group($group);
 		}
 	}

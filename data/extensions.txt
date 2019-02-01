@@ -2,16 +2,18 @@
 #ex: 000bcf345223;P34=1111;P35=1111;P3423=23432
 
 
-# Lê arquivos loc1.txt, loc1.1.txt e loc1.1.1.txt nesta sequência
-# Os parâmetros de cada arquivo lido tem precedência sobre os anteriores
-[ loc1/loc1.1/loc1.1.1 ]
+# Lê arquivos empresa e vendas, onde os parametros do arquivo que é citado primeiro
+# tem precedência sobre os citados depois. Podem ser usados quantos arquivos forem
+# desejados. ex: [contabilidade/financas/empresa]
+
+[ vendas/empresa ]
 000bcf341111;P34=1111;P35=1111
 000bcf342222;P34=2222;P35=2222
 
-[ loc1/loc1.2 ]
+[ suporte/empresa ]
 000bcf343333;P34=3333;P35=3333
 000bcf344444;P34=4444;P35=4444
 
-[ loc2 ]
+[ outra ]
 000bcf347777;P34=7777;P35=7777
 000bcf348888;P34=8888;P35=8888
